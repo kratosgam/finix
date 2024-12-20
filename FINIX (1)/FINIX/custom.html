@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>strondermonster - Suplementos Exclusivos</title>
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333; /* Fundo preto */
+            color: #fff; /* Texto em branco */
+            text-align: center;
+            background-image: url(''); /* Adiciona a imagem de fundo */
+            background-size: cover; /* Faz a imagem cobrir toda a página */
+            background-position: center; /* Alinha a imagem ao centro */
+            background-attachment: fixed; /* Imagem fixa durante o scroll */
+            zoom: 1; /* Zoom inicial */
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro e semitransparente */
+            padding: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #fff; /* Cor das palavras do título em branco */
+            text-shadow: 0 2px 5px rgba(255, 215, 0, 0.7); /* Sombra amarela */
+            z-index: 1;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #ddd; /* Cor das palavras em cinza claro */
+            z-index: 1;
+        }
+
+        header img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1); /* Fundo escuro e transparente */
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .product img {
+            width: 100px;
+            height: auto;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .product h2 {
+            font-size: 1.5em;
+            color: #fff; /* Cor do título em branco */
+            margin: 0 0 10px;
+        }
+
+        .product p {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #ddd; /* Cor das palavras em cinza claro */
+            margin: 0;
+        }
+
+        .product .actions {
+            margin-top: 10px;
+        }
+
+        .product button {
+            background-color: #fff; /* Cor do botão branca */
+            color: #333; /* Texto do botão preto */
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .product button:hover {
+            background-color: #ddd; /* Cor de fundo do botão quando passar o mouse */
+        }
+
+        footer {
+            background-color: #444; /* Fundo escuro para o rodapé */
+            text-align: center;
+            padding: 10px 0;
+            color: #777; /* Texto em cinza claro */
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #fff; /* Cor do link em branco */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Botões de zoom */
+        .zoom-buttons {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .zoom-buttons button {
+            background-color: #fff; /* Cor dos botões de zoom branca */
+            color: #333; /* Texto preto */
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .zoom-buttons button:hover {
+            background-color: #ddd; /* Cor de fundo dos botões de zoom quando passar o mouse */
+        }
+
+        /* Ícone de contador no canto */
+        .cart-icon {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: #f4c430;
+            color: #333;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        /* Modal para mostrar os produtos no carrinho */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .modal-header {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .modal-button {
+            background-color: #f4c430;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="suplementos2.jpg" alt="Imagem de Suplementos">
+        <h1>strondermonster - Suplementos Exclusivos</h1>
+        <p>Suplementos de alta qualidade para um estilo de vida saudável</p>
+    </header>
+
+    <main>
+        <div class="product">
+            <img src="whey.webp" alt="Proteína ProMax">
+            <div>
+                <h2>kit whey 1kg de morango, esculpa é garafa</h2>
+                <p>Preço: R$ 149,90</p>
+                <div class="actions">
+                    <button onclick="addToCart('kit whey 1kg de morango, esculpa é garafa', 149.90)">Adicionar ao Carrinho</button>
+                    <button onclick="removeFromCart('kit whey 1kg de morango, esculpa é garafa')">Remover</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="creatina.jpg" alt="Creatina Power">
+            <div>
+                <h2>Creatina Power</h2>
+                <p>Preço: R$ 89,90</p>
+                <div class="actions">
+                    <button onclick="addToCart('Creatina Power', 89.90)">Adicionar ao Carrinho</button>
+                    <button onclick="removeFromCart('Creatina Power')">Remover</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="og.png" alt="Ômega 3 Premium">
+            <div>
+                <h2>Ômega 3 Premium</h2>
+                <p>Preço: R$ 25,90</p>
+                <div class="actions">
+                    <button onclick="addToCart('Ômega 3 Premium', 25.90)">Adicionar ao Carrinho</button>
+                    <button onclick="removeFromCart('Ômega 3 Premium')">Remover</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="mt.webp" alt="Multivitamínico Max">
+            <div>
+                <h2>Multivitamínico Max</h2>
+                <p>Preço: R$ 89,90</p>
+                <div class="actions">
+                    <button onclick="addToCart('Multivitamínico Max', 89.90)">Adicionar ao Carrinho</button>
+                    <button onclick="removeFromCart('Multivitamínico Max')">Remover</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="product">
+            <img src="gl.webp" alt="Glutamina Force">
+            <div>
+                <h2>Glutamina Force</h2>
+                <p>Preço: R$ 119,90</p>
+                <div class="actions">
+                    <button onclick="addToCart('Glutamina Force', 119.90)">Adicionar ao Carrinho</button>
+                    <button onclick="removeFromCart('Glutamina Force')">Remover</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; strondermonster Suplementos. Todos os direitos reservados.</p>
+        <p><a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a></p>
+    </footer>
+
+    <!-- Ícone de contador no canto -->
+    <div class="cart-icon" id="cartCount">0</div>
+
+    <!-- Modal para exibir os produtos do carrinho -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Produtos no Carrinho</h2>
+            </div>
+            <div id="cartItems"></div>
+            <button class="modal-button" onclick="confirmOrder()">Confirmar Pedido</button>
+        </div>
+    </div>
+
+    <!-- Botões de Zoom -->
+    <div class="zoom-buttons">
+        <button onclick="zoomIn()">Aumentar</button>
+        <button onclick="zoomOut()">Diminuir</button>
+    </div>
+
+    <script>
+        let cartCount = 0;
+        let cartItems = [];
+
+        // Função para adicionar ao carrinho
+        function addToCart(productName, price) {
+            cartCount++;
+            cartItems.push({ name: productName, price: price });
+            updateCart();
+        }
+
+        // Função para remover do carrinho
+        function removeFromCart(productName) {
+            const index = cartItems.findIndex(item => item.name === productName);
+            if (index !== -1) {
+                cartCount--;
+                cartItems.splice(index, 1);
+            }
+            updateCart();
+        }
+
+        // Função para atualizar o contador
+        function updateCart() {
+            document.getElementById('cartCount').textContent = cartCount;
+        }
+
+        // Função para mostrar o modal com os itens no carrinho
+        function showCart() {
+            const cartModal = document.getElementById('cartModal');
+            const cartItemsList = document.getElementById('cartItems');
+
+            cartItemsList.innerHTML = '';
+            cartItems.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
+                cartItemsList.appendChild(itemDiv);
+            });
+
+            cartModal.style.display = 'flex';
+        }
+
+        // Função para confirmar o pedido
+        function confirmOrder() {
+            if (cartItems.length === 0) {
+                alert("Carrinho vazio. Adicione itens antes de confirmar.");
+                return;
+            }
+
+            let orderSummary = "Resumo do Pedido:\n";
+            cartItems.forEach(item => {
+                orderSummary += `${item.name} - R$ ${item.price.toFixed(2)}\n`;
+            });
+
+            alert(orderSummary);
+            cartItems = [];
+            cartCount = 0;
+            updateCart();
+            document.getElementById('cartModal').style.display = 'none';
+        }
+
+        // Função para aumentar o zoom
+        function zoomIn() {
+            document.body.style.zoom = parseFloat(document.body.style.zoom || 1) + 0.1;
+        }
+
+        // Função para diminuir o zoom
+        function zoomOut() {
+            document.body.style.zoom = parseFloat(document.body.style.zoom || 1) - 0.1;
+        }
+
+        // Exibe o modal ao clicar no contador de carrinho
+        document.getElementById('cartCount').addEventListener('click', showCart);
+    </script>
+</body>
+</html>
+
+
+
+
+
+

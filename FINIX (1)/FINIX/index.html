@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>strondermonster - Suplementos Exclusivos</title>
+    <style>
+        /* Estilos Gerais */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333; /* Fundo cinza escuro */
+            color: #fff;
+            text-align: center;
+        }
+
+        header {
+            background-color: #444; /* Fundo cinza mais claro para o cabeçalho */
+            padding: 20px 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative; /* Necessário para o posicionamento da imagem */
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #fff; /* Cor alterada para branco */
+            text-shadow: 0 2px 5px rgba(255, 255, 255, 0.7); /* Sombra branca */
+            z-index: 1; /* Garante que o título apareça sobre a imagem */
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #ddd;
+            z-index: 1; /* Garante que o texto sobreponha a imagem */
+        }
+
+        header img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* A imagem cobre completamente o cabeçalho */
+            opacity: 0.2; /* Diminui a opacidade para que o texto seja legível */
+            z-index: 0; /* Garante que a imagem fique abaixo do texto */
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .product {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .product h2 {
+            font-size: 1.8em;
+            color: #fff; /* Cor alterada para branco */
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            font-size: 1.1em;
+            line-height: 1.5;
+            color: #ddd;
+        }
+
+        /* Estilos do Botão */
+        .btn-saiba-mais {
+            background-color: #000; /* Cor do botão alterada para preto */
+            color: #fff; /* Cor do texto alterada para branco */
+            padding: 12px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 30px;
+            text-decoration: none;
+            display: inline-block;
+            animation: pulsar 1.5s infinite; /* Animação de pulsação */
+        }
+
+        .btn-saiba-mais:hover {
+            background-color: #333; /* Cor de fundo do botão quando passar o mouse */
+        }
+
+        /* Definindo a animação de pulsação */
+        @keyframes pulsar {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1); /* Aumenta o tamanho do botão */
+            }
+            100% {
+                transform: scale(1); /* Retorna ao tamanho original */
+            }
+        }
+
+        footer {
+            background-color: #444; /* Fundo cinza mais claro para o rodapé */
+            text-align: center;
+            padding: 10px 0;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        footer a {
+            color: #fff; /* Cor dos links alterada para branco */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Adicionando a imagem ao header -->
+        <img src="suplemento.jpg" alt="Imagem de Suplementos">
+        <h1>strondermonster - Suplementos Exclusivos</h1>
+        <p>Suplementos de alta qualidade para um estilo de vida saudável</p>
+    </header>
+
+    <main>
+        <div class="product">
+            <h2>Proteína ProMax</h2>
+            <p>
+                A Proteína ProMax é um suplemento de alto desempenho, com proteína isolada de soro de leite, ideal para atletas que buscam maximizar o ganho muscular e a recuperação pós-treino. 
+                Sua formulação sem aditivos artificiais oferece a nutrição pura que o seu corpo precisa.
+            </p>
+        </div>
+
+        <div class="product">
+            <h2>Creatina Power</h2>
+            <p>
+                Creatina Power é um suplemento de alta qualidade, desenvolvido para aumentar a performance física e ajudar na força muscular. Ideal para treinos intensos e de curta duração, 
+                este suplemento é essencial para otimizar seus resultados na musculação.
+            </p>
+        </div>
+
+        <div class="product">
+            <h2>Ômega 3 Premium</h2>
+            <p>
+                O Ômega 3 Premium é um suplemento com ácidos graxos essenciais para a saúde cardiovascular, funções cerebrais e redução da inflamação. 
+                Com alta concentração de EPA e DHA, este suplemento oferece benefícios que vão além da saúde física, proporcionando equilíbrio para o corpo e mente.
+            </p>
+        </div>
+
+        <div class="product">
+            <h2>Multivitamínico Max</h2>
+            <p>
+                O Multivitamínico Max oferece uma combinação completa de vitaminas e minerais para apoiar sua saúde geral. Ideal para quem tem uma rotina agitada, 
+                ajuda a melhorar a imunidade, o metabolismo e a energia do corpo ao longo do dia.
+            </p>
+        </div>
+
+        <div class="product">
+            <h2>Glutamina Force</h2>
+            <p>
+                A Glutamina Force é um aminoácido essencial para a recuperação muscular e manutenção do sistema imunológico. 
+                Perfeita para quem busca melhorar a resistência e reduzir o catabolismo durante períodos de treino intenso.
+            </p>
+        </div>
+
+        <!-- Botão Saiba Mais -->
+        <a href="custom.html" class="btn-saiba-mais">Saiba Mais</a>
+    </main>
+
+    <footer>
+        <p>&copy; strondermonster Suplementos. Todos os direitos reservados.</p>
+        <p><a href="#">Termos de Serviço</a> | <a href="#">Política de Privacidade</a></p>
+    </footer>
+
+</body>
+</html>
+
